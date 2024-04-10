@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.MainPage">
+
+    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
+
+        <Image Source="app_logo.png" HorizontalOptions="Center" HeightRequest="130" WidthRequest="130"/>
+
+        <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+
+        <Button x:Name="LoginButton" Text="Log In" Clicked="OnLoginClicked" />
+        <Button x:Name="SignUpButton" Text="Sign Up" Clicked="OnSignUpClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
