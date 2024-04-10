@@ -6,11 +6,9 @@
 
     <Grid RowDefinitions="*,*,Auto">
         <!-- First half of the page could be other content or empty -->
-        <BoxView Grid.Row="0" Color="Transparent" />
+        <BoxView Grid.Row="0" Color="White" />
 
-        <Label Text="Meals" Grid.Row="1" FontSize="15" Margin="10,0,0,0" />
-
-        <!-- Second half of the page showing today's meals -->
+        <Label Text="Meals" Grid.Row="0" FontSize="15" Margin="10,0,0,0" VerticalOptions="End" />
         <CollectionView x:Name="TodayMealsList" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -26,8 +24,8 @@
         </CollectionView>
         <Label x:Name="NoMealsLabel" Text="No meals recorded for today" Grid.Row="1" IsVisible="{Binding IsMealsListEmpty}" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
 
-        <!-- Button at the bottom of the page -->
-        <Button Text="+"
+        <Grid RowDefinitions="*,*,Auto" BackgroundColor="Transparent"  Grid.Row="1">
+            <Button Text="+"
                 FontSize="24"
                 WidthRequest="60"
                 HeightRequest="60"
@@ -39,5 +37,6 @@
                 VerticalOptions="End"
                 Margin="0,0,0,10"
                 Clicked="OnAddMealClicked"/>
+        </Grid>
     </Grid>
 </ContentPage>

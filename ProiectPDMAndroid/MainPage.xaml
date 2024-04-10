@@ -5,7 +5,7 @@
 
     <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
 
-        <Image Source="app_logo.png" HorizontalOptions="Center" HeightRequest="130" WidthRequest="130"/>
+        <Image Source="app_logo.png" HorizontalOptions="Center" HeightRequest="200" WidthRequest="200"/>
 
         <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
         <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
