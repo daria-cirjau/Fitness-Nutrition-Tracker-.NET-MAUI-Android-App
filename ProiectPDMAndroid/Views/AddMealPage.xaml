@@ -1,0 +1,39 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.AddMealPage"
+             Title="Add a meal">
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <Entry x:Name="MealTypeEntry"
+               Placeholder="Enter meal type (e.g., Breakfast)" />
+
+        <Entry x:Name="IngredientEntry"
+               Placeholder="Add all ingredients" />
+
+        <Button Text="Add Ingredients"
+                Clicked="OnAddIngredientClicked" />
+
+        <Label Text="Nutrients:"
+               FontAttributes="Bold" />
+
+        <CollectionView x:Name="IngredientsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical" Padding="5">
+                        <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                        <Label Text="{Binding Calories, StringFormat='Calories: {0:F2} kcal'}" />
+                        <Label Text="{Binding Protein, StringFormat='Protein: {0:F2} g'}" />
+                        <Label Text="{Binding Fat, StringFormat='Fat: {0:F2} g'}" />
+                        <Label Text="{Binding Carbohydrates, StringFormat='Carbohydrates: {0:F2} g'}" />
+                        <Label Text="{Binding Sugar, StringFormat='Sugar: {0:F2} g'}" />
+                        <Label Text="{Binding Sodium, StringFormat='Sodium: {0:F2} mg'}" />
+                        <Label Text="{Binding Potassium, StringFormat='Potassium: {0:F2} mg'}" />
+                        <Label Text="{Binding Cholesterol, StringFormat='Cholesterol: {0:F2} mg'}" />
+                        <Label Text="{Binding ServingSize, StringFormat='Serving Size: {0:F2} g'}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

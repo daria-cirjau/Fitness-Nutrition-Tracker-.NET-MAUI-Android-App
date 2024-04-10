@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.UserMeals"
+             Title="Meal history">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <CollectionView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                        x:Name="MealsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="10" Margin="5" Padding="10" HasShadow="True">
+                        <StackLayout>
+                            <Label Text="{Binding Date, StringFormat='{0:D}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding MealType}" FontAttributes="Italic" />
+                            <Label Text="{Binding IngredientsString}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="+" 
+                FontSize="24"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="MediumPurple"
+                TextColor="White"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="OnAddMealClicked"/>
+    </AbsoluteLayout>
+</ContentPage>

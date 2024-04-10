@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.FirstPage"
+             Title="Today's Activity">
+
+    <Grid RowDefinitions="*,*,Auto">
+        <!-- First half of the page could be other content or empty -->
+        <BoxView Grid.Row="0" Color="Transparent" />
+
+        <Label Text="Meals" Grid.Row="1" FontSize="15" Margin="10,0,0,0" />
+
+        <!-- Second half of the page showing today's meals -->
+        <CollectionView x:Name="TodayMealsList" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="10" Margin="5" Padding="10" HasShadow="True">
+                        <StackLayout>
+                            <Label Text="{Binding Date, StringFormat='{0:D}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding MealType}" FontAttributes="Italic" />
+                            <Label Text="{Binding IngredientsString}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label x:Name="NoMealsLabel" Text="No meals recorded for today" Grid.Row="1" IsVisible="{Binding IsMealsListEmpty}" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
+
+        <!-- Button at the bottom of the page -->
+        <Button Text="+"
+                FontSize="24"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="MediumPurple"
+                TextColor="White"
+                Grid.Row="2"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="0,0,0,10"
+                Clicked="OnAddMealClicked"/>
+    </Grid>
+</ContentPage>
