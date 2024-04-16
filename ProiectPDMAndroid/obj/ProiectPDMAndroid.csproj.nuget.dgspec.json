@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj": {}
+    "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj": {}
   },
   "projects": {
-    "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj": {
+    "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
+        "projectUniqueName": "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
         "projectName": "ProiectPDMAndroid",
-        "projectPath": "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
+        "projectPath": "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
         "packagesPath": "C:\\Users\\daria-pc\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\obj\\",
+        "outputPath": "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

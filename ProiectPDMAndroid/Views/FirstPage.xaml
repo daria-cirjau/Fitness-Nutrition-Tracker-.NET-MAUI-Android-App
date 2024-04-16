@@ -5,10 +5,29 @@
              Title="Today's Activity">
 
     <Grid RowDefinitions="*,*,Auto">
-        <!-- First half of the page could be other content or empty -->
-        <BoxView Grid.Row="0" Color="White" />
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" Grid.Row="0">
+            <Label Text="Exercises" FontSize="15" Margin="10" VerticalOptions="Start" Grid.Row="0"/>
+            <Label Text="Today's Progress" FontSize="15" Margin="10" Grid.Row="1" HorizontalOptions="Center"/>
+            <Label x:Name="progressLabel" FontSize="12" Margin="10" Grid.Row="2" HorizontalOptions="Center"/>
 
-        <Label Text="Meals" Grid.Row="0" FontSize="15" Margin="10,0,0,0" VerticalOptions="End" />
+            <ProgressBar x:Name="exerciseProgress" 
+                         HeightRequest="20" Margin="20"
+                         ProgressColor="MediumPurple" BackgroundColor="White"
+                         Grid.Row="3"/>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Grid.Row="4" Spacing="10">
+                <Image Source="glass_of_water.png" WidthRequest="30" HeightRequest="30"/>
+                <StackLayout Orientation="Horizontal" Spacing="30">
+                    <Button Text="+" BackgroundColor="MediumPurple" TextColor="White" Clicked="IncrementWaterIntake" WidthRequest="30" HeightRequest="30"/>
+                    <Entry x:Name="waterIntakeEntry" Text="{Binding WaterIntake}" WidthRequest="40" Keyboard="Numeric" MaxLength="3" HorizontalTextAlignment="Center"/>
+                    <Button Text="-" BackgroundColor="MediumPurple" TextColor="White" Clicked="DecrementWaterIntake" WidthRequest="30" HeightRequest="30"/>
+                </StackLayout>
+                <Button Text="Save" Clicked="UpdateWaterIntakeInDatabase" WidthRequest="60" HeightRequest="40" BackgroundColor="MediumPurple"/>
+            </StackLayout>
+         </Grid>
+            
+        <Label Text="Meals" FontSize="15" Margin="10" VerticalOptions="Start" Grid.Row="1"/>
+
         <CollectionView x:Name="TodayMealsList" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

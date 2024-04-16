@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "57J4eDpAuJmrw3vP7bsKuu8KcLwCXUc0vfxNRTIic58ealWgFjJZnwoZhuNSxbMo5IY1DbrODQ4nXaRx/GS+qw==",
+  "dgSpecHash": "PeTMj4Vuzdh0reXWMq5j1tZ5CzAErwpRDAiF6kfriYpQDGFDANxjTsu6QQeoG+z6DVoRgQrDPm6cs8zlcrF4rg==",
   "success": true,
-  "projectFilePath": "D:\\Facultate\\master 1\\sem 2\\ingineria programarii si limbaje de asamblare\\proiect\\ProiectPDMAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
+  "projectFilePath": "D:\\Facultate\\master 1\\sem 2\\programarea dispozitivelor mobile\\proiect\\proiect-android-.netmaui\\PDM-.NetMauiAndroid\\ProiectPDMAndroid\\ProiectPDMAndroid.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daria-pc\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\daria-pc\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

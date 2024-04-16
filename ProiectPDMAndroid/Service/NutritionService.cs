@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using ProiectPDM.Models;
+using ProiectPDMAndroid.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,6 +15,7 @@ namespace ProiectPDM.Services
         private HttpClient _httpClient;
         private string _baseUrl;
         private string _apiKey;
+        private string _exerciseUrl;
 
         public NutritionService()
         {
@@ -29,11 +31,12 @@ namespace ProiectPDM.Services
             dynamic config = JsonConvert.DeserializeObject<dynamic>(json);
             _baseUrl = config.BaseUrl;
             _apiKey = config.ApiKey;
+            _exerciseUrl = config.ExerciseUrl;
         }
 
         public async Task<List<Ingredient>> GetIngredientsNutritionAsync(string itemName)
         {
-            var requestUri = $"{_baseUrl}{Uri.EscapeDataString(itemName)}";
+            var requestUri = $"{_baseUrl}/nutrition?query={Uri.EscapeDataString(itemName)}";
             var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
             request.Headers.Add("X-Api-Key", _apiKey); 
 
@@ -65,6 +68,21 @@ namespace ProiectPDM.Services
             }
 
             return ingredients;
+        }
+
+        public async Task<List<Exercise>> GetExercisesByNameAsync(string exerciseName)
+        {
+            var requestUri = $"{_exerciseUrl}/exercises?name={Uri.EscapeDataString(exerciseName)}";
+            var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
+            request.Headers.Add("X-Api-Key", _apiKey);
+
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            var exercises = JsonConvert.DeserializeObject<List<Exercise>>(jsonResponse);
+
+            return exercises ?? new List<Exercise>();
         }
     }
 }

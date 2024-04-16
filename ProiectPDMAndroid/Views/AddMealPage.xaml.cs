@@ -42,7 +42,6 @@ public partial class AddMealPage : ContentPage
                 if (success)
                 {
                     IngredientEntry.Text = string.Empty;
-                    // _ingredients.Clear(); 
                 }
             }
         }
