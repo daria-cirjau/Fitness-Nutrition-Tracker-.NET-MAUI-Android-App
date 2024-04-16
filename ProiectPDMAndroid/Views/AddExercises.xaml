@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.AddExercises"
+             Title="Add Exercises">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30">
+            <Entry x:Name="SearchExercises"
+                Placeholder="Search exercises" />
+
+            <Button Text="Search"
+                Clicked="OnSearchClicked" />
+
+            <CollectionView
+                x:Name="exercisesCollectionView"
+                ItemsSource="{Binding Exercises}"
+                SelectionMode="Single"
+                SelectionChanged="OnSelectionChanged"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" VerticalOptions="Center" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <TimePicker
+                x:Name="exerciseDuration"
+                Format="HH:mm"
+                VerticalOptions="Start"
+                HorizontalOptions="FillAndExpand"
+                Time="00:30:00"/>
+
+            <Button Text="Save Exercise"
+                Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

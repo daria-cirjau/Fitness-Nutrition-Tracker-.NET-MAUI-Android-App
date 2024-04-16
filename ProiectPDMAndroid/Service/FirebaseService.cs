@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using ProiectPDM.Models;
 using ProiectPDM.Views;
+using ProiectPDMAndroid.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace ProiectPDM.Service
         private readonly HttpClient _httpClient;
         private string _baseUrl;
         private string _apiKey;
-        private string _userId;
+        private static string _userId;
 
         public FirebaseService()
         {
@@ -103,7 +104,7 @@ namespace ProiectPDM.Service
         public async Task<List<Meal>> GetTodayUserMealsAsync()
         {
             var todayMeals = new List<Meal>();
-            var todayDate = DateTime.UtcNow.ToString("yyyy-MM-dd"); // Ensure this matches the date format used in your Meal model
+            var todayDate = DateTime.UtcNow.ToString("yyyy-MM-dd"); 
 
             var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/meals.json");
 
@@ -115,7 +116,6 @@ namespace ProiectPDM.Service
                 {
                     foreach (var mealEntry in mealsDict.Values)
                     {
-                        // Check if the meal date matches today's date
                         if (mealEntry.Date == todayDate)
                         {
                             todayMeals.Add(mealEntry);
@@ -158,5 +158,117 @@ namespace ProiectPDM.Service
             }
         }
 
+        public async Task<bool> AddExerciseAsync(Exercise exercise)
+        {
+            var url = $"{_baseUrl}users/{_userId}/exercises.json";
+            var json = JsonConvert.SerializeObject(exercise);
+            var response = await _httpClient.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                var error = JsonConvert.DeserializeObject<dynamic>(content);
+                string errorMessage = "An error occurred while adding the exercise to the database.";
+                if (error != null && error.error != null && error.error.message != null)
+                {
+                    errorMessage = error.error.message;
+                }
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Failed to add the exercise", errorMessage, "OK");
+                });
+                return false;
+            }
+        }
+
+        public async Task<List<Exercise>> GetUserExercisesAsync()
+        {
+            var exercises = new List<Exercise>();
+            var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/exercises.json");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var exercisesDict = JsonConvert.DeserializeObject<Dictionary<string, Exercise>>(content);
+                if (exercisesDict != null)
+                {
+                    foreach (var exerciseEntry in exercisesDict.Values)
+                    {
+                        exercises.Add(exerciseEntry);
+                    }
+                }
+            }
+            return exercises;
+        }
+
+        public async Task<List<Exercise>> GetTodayUserExercisesAsync()
+        {
+            var todayExxercises = new List<Exercise>();
+            var todayDate = DateTime.UtcNow.ToString("yyyy-MM-dd");
+
+            var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/exercises.json");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var exercisesDict = JsonConvert.DeserializeObject<Dictionary<string, Exercise>>(content);
+                if (exercisesDict != null)
+                {
+                    foreach (var exerciseEntry in exercisesDict.Values)
+                    {
+                        if (exerciseEntry.Date == todayDate)
+                        {
+                            todayExxercises.Add(exerciseEntry);
+                        }
+                    }
+                }
+            }
+
+            return todayExxercises;
+        }
+
+        public async Task<bool> UpdateWaterIntakeAsync(int glasses)
+        {
+            var url = $"{_baseUrl}users/{_userId}/waterIntake.json";
+            var json = JsonConvert.SerializeObject(new { Date = DateTime.UtcNow.ToString("yyyy-MM-dd"), Glasses = glasses });
+
+            var response = await _httpClient.PutAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
+            var content = await response.Content.ReadAsStringAsync();
+
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<int> GetTodayWaterIntakeAsync()
+        {
+            var todayDate = DateTime.UtcNow.ToString("yyyy-MM-dd");
+            var todayWaterIntake = 0;
+            var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/waterIntake.json");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var waterDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(content);
+                if (waterDict != null)
+                {
+                    foreach (var waterEntry in waterDict.Values)
+                    {
+                        if (waterEntry.Date == todayDate)
+                        {
+                            todayWaterIntake = waterEntry.Glasses;
+                        }
+                    }
+                }
+            }
+
+            return todayWaterIntake;
+        }
+
+
+
     }
+
 }
