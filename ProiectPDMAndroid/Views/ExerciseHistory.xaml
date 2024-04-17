@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.ExerciseHistory"
+             Title="Exercise History">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <CollectionView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                        x:Name="ExercisesList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="10" Margin="5" Padding="10" HasShadow="True">
+                        <StackLayout>
+                            <Label Text="{Binding Date, StringFormat='{0:D}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding Equipment}" FontAttributes="Italic" />
+                            <Label Text="{Binding Muscle}" />
+                            <Label Text="{Binding Duration, StringFormat='Duration: {0:%h}h {0:%m}m'}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </AbsoluteLayout>
+</ContentPage>

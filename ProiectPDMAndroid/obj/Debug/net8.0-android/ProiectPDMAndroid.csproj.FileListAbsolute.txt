@@ -2085,3 +2085,4 @@ D:\Facultate\master 1\sem 2\programarea dispozitivelor mobile\proiect\proiect-an
 D:\Facultate\master 1\sem 2\programarea dispozitivelor mobile\proiect\proiect-android-.netmaui\PDM-.NetMauiAndroid\ProiectPDMAndroid\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
 D:\Facultate\master 1\sem 2\programarea dispozitivelor mobile\proiect\proiect-android-.netmaui\PDM-.NetMauiAndroid\ProiectPDMAndroid\obj\Debug\net8.0-android\resizetizer\r\drawable\ic_weights.png
 D:\Facultate\master 1\sem 2\programarea dispozitivelor mobile\proiect\proiect-android-.netmaui\PDM-.NetMauiAndroid\ProiectPDMAndroid\obj\Debug\net8.0-android\resizetizer\r\drawable\glass_of_water.png
+D:\Facultate\master 1\sem 2\programarea dispozitivelor mobile\proiect\proiect-android-.netmaui\PDM-.NetMauiAndroid\ProiectPDMAndroid\obj\Debug\net8.0-android\resizetizer\r\drawable\ic_exercise_history.png

@@ -138,9 +138,7 @@ namespace ProiectPDM.Service
 
             if (response.IsSuccessStatusCode)
             {
-                var data = JsonConvert.DeserializeObject<dynamic>(content);
-                _userId = (string)data.localId;
-                return true;
+               return true;
             }
             else
             {

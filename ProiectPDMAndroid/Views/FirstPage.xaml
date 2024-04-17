@@ -18,17 +18,17 @@
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Grid.Row="4" Spacing="10">
                 <Image Source="glass_of_water.png" WidthRequest="30" HeightRequest="30"/>
                 <StackLayout Orientation="Horizontal" Spacing="30">
-                    <Button Text="+" BackgroundColor="MediumPurple" TextColor="White" Clicked="IncrementWaterIntake" WidthRequest="30" HeightRequest="30"/>
+                    <Button Text="+" FontSize="Medium" BackgroundColor="MediumPurple" TextColor="White" Clicked="IncrementWaterIntake" WidthRequest="40" HeightRequest="40"/>
                     <Entry x:Name="waterIntakeEntry" Text="{Binding WaterIntake}" WidthRequest="40" Keyboard="Numeric" MaxLength="3" HorizontalTextAlignment="Center"/>
-                    <Button Text="-" BackgroundColor="MediumPurple" TextColor="White" Clicked="DecrementWaterIntake" WidthRequest="30" HeightRequest="30"/>
+                    <Button Text="-" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" Clicked="DecrementWaterIntake" WidthRequest="40" HeightRequest="40" VerticalOptions="Center"/>
                 </StackLayout>
                 <Button Text="Save" Clicked="UpdateWaterIntakeInDatabase" WidthRequest="60" HeightRequest="40" BackgroundColor="MediumPurple"/>
             </StackLayout>
          </Grid>
-            
+
         <Label Text="Meals" FontSize="15" Margin="10" VerticalOptions="Start" Grid.Row="1"/>
 
-        <CollectionView x:Name="TodayMealsList" Grid.Row="1">
+        <CollectionView x:Name="TodayMealsList" Grid.Row="1" Margin="0,30,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="10" Margin="5" Padding="10" HasShadow="True">
