@@ -16,6 +16,9 @@
     <FlyoutItem Title="Add Exercise" Icon="ic_weights.png">
         <ShellContent ContentTemplate="{DataTemplate views:AddExercises}" />
     </FlyoutItem>
+    <FlyoutItem Title="Exercise History" Icon="ic_exercise_history.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ExerciseHistory}" />
+    </FlyoutItem>
 
 
 </Shell>

@@ -24,6 +24,7 @@ public partial class FirstPage : ContentPage
         base.OnAppearing();
         await LoadTodayUserMeals();
         await LoadTodayUserExercises();
+        UpdateWaterIntake();
     }
 
     private async Task LoadTodayUserMeals()
@@ -41,10 +42,16 @@ public partial class FirstPage : ContentPage
 
     // TO BE CHECKED
     private async Task LoadTodayUserWaterIntake()
+
     {
         var waterIntake = await _firebaseService.GetTodayWaterIntakeAsync();
         _waterIntake = waterIntake;
-        waterIntakeEntry.Text = waterIntake.ToString();
+        UpdateWaterIntake();
+    }
+
+    private void UpdateWaterIntake()
+    {
+        waterIntakeEntry.Text = _waterIntake.ToString();
     }
 
     private void OnAddMealClicked(object sender, EventArgs e)
