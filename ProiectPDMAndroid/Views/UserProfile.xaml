@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectPDM.Views.UserProfile"
+             Title="User Profile">
+    <VerticalStackLayout>
+        <Label Margin="0,20,20,0"
+            Text="Welcome back!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <StackLayout Margin="20,10,20,10">
+            <Label Text="{Binding CurrentExerciseTarget, StringFormat='Current exercise target: {0} minutes'}" />
+            <Entry x:Name="NewExerciseTargetEntry" Text="{Binding NewExerciseTarget}" />
+        </StackLayout>
+
+        <StackLayout Margin="20,10,20,10">
+            <Label Text="{Binding CurrentCalorieTarget, StringFormat='Current calorie target: {0} kcal'}" />
+            <Entry x:Name="NewCalorieTargetEntry" Text="{Binding NewCalorieTarget}" />
+        </StackLayout>
+
+        <Button Text="Save" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -6,7 +6,7 @@ public partial class FirstPage : ContentPage
 {
     private FirebaseService _firebaseService = new FirebaseService();
     public static int _waterIntake { get; set; } // Default 
-    private double _targetMinutes = 90; // TO BE CHANGED
+    public static int _targetMinutes { get; set; } = 90; // Default
     private double _totalMinutes;
     public string ProgressText => $"{_totalMinutes} min / {_targetMinutes} min";
 
@@ -14,6 +14,7 @@ public partial class FirstPage : ContentPage
     public FirstPage()
     {
         InitializeComponent();
+        LoadUserTarget();
         LoadTodayUserMeals();
         LoadTodayUserExercises();
         LoadTodayUserWaterIntake();
@@ -40,7 +41,6 @@ public partial class FirstPage : ContentPage
         UpdateExerciseProgressBar(exercises);
     }
 
-    // TO BE CHECKED
     private async Task LoadTodayUserWaterIntake()
 
     {
@@ -52,6 +52,13 @@ public partial class FirstPage : ContentPage
     private void UpdateWaterIntake()
     {
         waterIntakeEntry.Text = _waterIntake.ToString();
+    }
+
+    private async Task LoadUserTarget()
+
+    {
+        var target = await _firebaseService.GetTarget();
+        _targetMinutes = target.Item1;
     }
 
     private void OnAddMealClicked(object sender, EventArgs e)

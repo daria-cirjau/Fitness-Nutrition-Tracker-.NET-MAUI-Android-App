@@ -75,3 +75,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ProiectPDMAndroid.Views.UserMeals.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\UserMeals.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\UserMeals.xaml
+
+[D:/Facultate/master 1/sem 2/programarea dispozitivelor mobile/proiect/proiect-android-.netmaui/PDM-.NetMauiAndroid/ProiectPDMAndroid/Views/UserProfile.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProiectPDMAndroid.Views.UserProfile.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserProfile.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserProfile.xaml
