@@ -6,9 +6,12 @@
     xmlns:views="clr-namespace:ProiectPDM.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="ProiectPDM">
-
+   
     <FlyoutItem Title="Today's Activity" Icon="icon_today.png">
         <ShellContent ContentTemplate="{DataTemplate views:FirstPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="User Profile" Icon="user.png">
+        <ShellContent ContentTemplate="{DataTemplate views:UserProfile}" />
     </FlyoutItem>
     <FlyoutItem Title="Meal History" Icon="icon_meals.png">
         <ShellContent ContentTemplate="{DataTemplate views:UserMeals}" />

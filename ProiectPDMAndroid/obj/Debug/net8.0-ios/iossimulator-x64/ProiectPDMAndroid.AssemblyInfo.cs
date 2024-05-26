@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProiectPDMAndroid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4a7c6f2c8aaa4ee4b8170c70003aff24e0d78d6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+29b81cf37e7688be5ad48dc473fade282e5032bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProiectPDMAndroid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProiectPDMAndroid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

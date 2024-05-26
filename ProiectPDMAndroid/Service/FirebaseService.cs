@@ -1,16 +1,8 @@
-﻿using Microsoft.Maui.Storage;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using ProiectPDM.Models;
-using ProiectPDM.Views;
 using ProiectPDMAndroid.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProiectPDM.Service
 {
@@ -205,7 +197,7 @@ namespace ProiectPDM.Service
 
         public async Task<List<Exercise>> GetTodayUserExercisesAsync()
         {
-            var todayExxercises = new List<Exercise>();
+            var todayExercises = new List<Exercise>();
             var todayDate = DateTime.UtcNow.ToString("yyyy-MM-dd");
 
             var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/exercises.json");
@@ -220,13 +212,13 @@ namespace ProiectPDM.Service
                     {
                         if (exerciseEntry.Date == todayDate)
                         {
-                            todayExxercises.Add(exerciseEntry);
+                            todayExercises.Add(exerciseEntry);
                         }
                     }
                 }
             }
 
-            return todayExxercises;
+            return todayExercises;
         }
 
         public async Task<bool> UpdateWaterIntakeAsync(int glasses)
@@ -263,6 +255,35 @@ namespace ProiectPDM.Service
             }
 
             return todayWaterIntake;
+        }
+
+        public async Task<Tuple<int, int>> GetTarget()
+        {
+            var exerciseTarget = 0;
+            var calorieTarget = 0;
+            var response = await _httpClient.GetAsync($"{_baseUrl}users/{_userId}/target.json");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                dynamic targetObj = JsonConvert.DeserializeObject<dynamic>(content);
+                if (targetObj != null)
+                {
+                    exerciseTarget = targetObj.ExerciseTarget;
+                    calorieTarget = targetObj.CalorieTarget;
+                }
+            }
+
+            return new Tuple<int, int>(exerciseTarget, calorieTarget);
+        }
+
+        public async Task<bool> AddTargetAsync(int exerciseTarget, int calorieTarget)
+        {
+            var url = $"{_baseUrl}users/{_userId}/target.json";
+            var json = JsonConvert.SerializeObject(new { ExerciseTarget = exerciseTarget, CalorieTarget = calorieTarget });
+            var response = await _httpClient.PutAsync(url, new StringContent(json, Encoding.UTF8, "application/json")); 
+
+            return response.IsSuccessStatusCode;
         }
 
 

@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\glass_of_water.png" />
 	  <None Remove="Resources\Images\ic_exercise_history.png" />
 	  <None Remove="Resources\Images\ic_weights.png" />
+	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Raw\apiProperties.json" />
 	  <None Remove="Resources\Raw\dbProperties.json" />
 	</ItemGroup>
@@ -85,6 +86,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserMeals.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserProfile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
